@@ -187,7 +187,6 @@ def validate_block():
     except BlockchainException as bce:
         return jsonify({'message': f'Invalid block: {bce}'}), 400
 
-
 @app.route('/transaction', methods=['POST'])
 def add_transaction():
     try:
@@ -206,7 +205,6 @@ def add_transaction():
     except BlockchainException as bce:
         return jsonify({'message': f'Transaction rejected: {bce}'}), 400
 
-
 @app.route('/transaction/<private_key>/<public_key>/<value>', methods=['POST'])
 def add_transaction2(private_key, public_key, value):
     try:
@@ -216,7 +214,6 @@ def add_transaction2(private_key, public_key, value):
         return jsonify({'message': f'Pending transaction {transaction.tx_hash} added to the Blockchain'}), 201
     except BlockchainException as bce:
         return jsonify({'message': f'Transaction rejected: {bce}'}), 400
-
 
 @app.route('/avgtimes', methods=['GET'])
 def get_averages():
